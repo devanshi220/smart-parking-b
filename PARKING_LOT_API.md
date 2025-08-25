@@ -108,6 +108,43 @@ Updates an existing parking lot. **Requires ADMIN role.**
 }
 ```
 
+### 4. Get Parking Lot Details by IDs
+**POST** `/api/parking-lots/batch-details`
+
+Returns an object with parking lot IDs as keys and name/address as values.
+
+**Headers:**
+- `Authorization: Bearer <token>`
+- `Content-Type: application/json`
+
+**Request Body:**
+```json
+{
+  "parkingLotIds": [1, 2, 3]
+}
+```
+
+**Response:**
+```json
+{
+  "1": {
+    "id": 1,
+    "name": "Downtown Parking",
+    "address": "123 Main St, City"
+  },
+  "2": {
+    "id": 2,
+    "name": "Airport Parking",
+    "address": "456 Airport Rd, City"
+  },
+  "3": {
+    "id": 3,
+    "name": "Mall Parking",
+    "address": "789 Shopping Ave, City"
+  }
+}
+```
+
 ## Error Responses
 
 ### 401 Unauthorized
